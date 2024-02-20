@@ -1,4 +1,15 @@
-steps:
+on:
+  pull_request: {}
+  push:
+    branches:
+    - main
+    - master
+name: tenable_iac
+jobs:
+  tenable:
+    name: IaC Scan
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v3
     - name: Scan IaC with Tenable Cloud Security
       uses: ermetic/actions/iac/scan@v1
